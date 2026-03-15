@@ -17,51 +17,51 @@ Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını yönetmek için kur
 
 ### Çok Platformlu Destek
 
-| Özellik           | Açıklama                                          |
-|-------------------|---------------------------------------------------|
-| Windows           | GUI + CLI + sistem tepsisi + otomatik başlatma     |
-| macOS             | GUI + CLI + LaunchAgent ile otomatik başlatma      |
-| Linux             | GUI + CLI + XDG autostart ile otomatik başlatma    |
+| Özellik | Açıklama                                        |
+|---------|-------------------------------------------------|
+| Windows | GUI + CLI + sistem tepsisi + otomatik başlatma  |
+| macOS   | GUI + CLI + LaunchAgent ile otomatik başlatma   |
+| Linux   | GUI + CLI + XDG autostart ile otomatik başlatma |
 
 ### Çift Mod (GUI + CLI)
 
-| Mod               | Kullanım                                          |
-|-------------------|---------------------------------------------------|
-| GUI               | Çift tıklama veya argümansız çalıştırma            |
-| CLI Login         | `--login -u kullanıcı -p şifre -s sunucu`         |
-| CLI Logout        | `--logout -u kullanıcı -s sunucu`                  |
-| CLI Durum         | `--status`                                         |
-| Kayıtlı Bilgiler  | `--login --config` (kaydedilmiş kimlik bilgileri) |
+| Mod              | Kullanım                                          |
+|------------------|---------------------------------------------------|
+| GUI              | Çift tıklama veya argümansız çalıştırma           |
+| CLI Login        | `--login -u kullanıcı -p şifre -s sunucu`         |
+| CLI Logout       | `--logout -u kullanıcı -s sunucu`                 |
+| CLI Durum        | `--status`                                        |
+| Kayıtlı Bilgiler | `--login --config` (kaydedilmiş kimlik bilgileri) |
 
 ### Güvenlik
 
-| Özellik             | Açıklama                                        |
-|---------------------|-------------------------------------------------|
-| AES-256-GCM         | Makineye özgü anahtar ile şifreleme             |
-| Güvenli Depolama    | Şifrelenmiş kimlik bilgisi saklama (0600 izin)  |
-| SSL/TLS Desteği     | Yapılandırılabilir sertifika doğrulaması         |
-| Denetim Kayıtları   | Hassas veri temizlikli yapılandırılmış kayıt     |
-| Bellek Temizliği    | Giriş sonrası şifre bellekten temizlenir         |
+| Özellik           | Açıklama                                       |
+|-------------------|------------------------------------------------|
+| AES-256-GCM       | Makineye özgü anahtar ile şifreleme            |
+| Güvenli Depolama  | Şifrelenmiş kimlik bilgisi saklama (0600 izin) |
+| SSL/TLS Desteği   | Yapılandırılabilir sertifika doğrulaması       |
+| Denetim Kayıtları | Hassas veri temizlikli yapılandırılmış kayıt   |
+| Bellek Temizliği  | Giriş sonrası şifre bellekten temizlenir       |
 
 ### Kullanıcı Deneyimi
 
-| Özellik                   | Açıklama                                    |
-|---------------------------|---------------------------------------------|
-| Gerçek Zamanlı Dil        | Yeniden başlatma olmadan Türkçe/İngilizce   |
-| Sistem Dili Algılama      | İşletim sistemi diline göre otomatik seçim  |
-| Toast Bildirimleri        | Engelleyici olmayan bildirim sistemi         |
-| Sistem Tepsisi            | Asla kapanmayan arka plan çalışması          |
-| True Black Tema           | OLED-optimize saf siyah tasarım              |
-| Otomatik Başlat           | Platforma özgü sistem başlatma entegrasyonu  |
-| Otomatik Giriş            | Başlatmada otomatik kimlik doğrulama         |
+| Özellik              | Açıklama                                    |
+|----------------------|---------------------------------------------|
+| Gerçek Zamanlı Dil   | Yeniden başlatma olmadan Türkçe/İngilizce   |
+| Sistem Dili Algılama | İşletim sistemi diline göre otomatik seçim  |
+| Toast Bildirimleri   | Engelleyici olmayan bildirim sistemi        |
+| Sistem Tepsisi       | Asla kapanmayan arka plan çalışması         |
+| True Black Tema      | OLED-optimize saf siyah tasarım             |
+| Otomatik Başlat      | Platforma özgü sistem başlatma entegrasyonu |
+| Otomatik Giriş       | Başlatmada otomatik kimlik doğrulama        |
 
 ### Otomatik Yeniden Bağlanma
 
-| Özellik          | Açıklama                                        |
-|------------------|-------------------------------------------------|
-| Akıllı İzleme    | Arka plan oturum sağlık kontrolleri              |
-| Yeniden Deneme   | 5 saniye aralıklarla 3 denemeye kadar            |
-| Kullanıcı Niyeti | Manuel çıkışta otomatik bağlanmayı devre dışı    |
+| Özellik          | Açıklama                                      |
+|------------------|-----------------------------------------------|
+| Akıllı İzleme    | Arka plan oturum sağlık kontrolleri           |
+| Yeniden Deneme   | 5 saniye aralıklarla 3 denemeye kadar         |
+| Kullanıcı Niyeti | Manuel çıkışta otomatik bağlanmayı devre dışı |
 
 ## Hızlı Başlangıç
 
@@ -122,11 +122,11 @@ sophos-xg --version
 
 ### CLI Çıkış Kodları
 
-| Kod | Anlam                     |
-|-----|---------------------------|
-| 0   | Başarılı                  |
-| 1   | Genel hata                |
-| 2   | Kimlik doğrulama hatası   |
+| Kod | Anlam                   |
+|-----|-------------------------|
+| 0   | Başarılı                |
+| 1   | Genel hata              |
+| 2   | Kimlik doğrulama hatası |
 
 ## Derleme
 
@@ -142,12 +142,12 @@ go build ./cmd/sophosxg/
 go test ./internal/... -count=1
 ```
 
-| Bilgi            | Değer                       |
-|------------------|-----------------------------|
-| Dil              | Go 1.22+                    |
-| GUI Framework    | Fyne v2.4.4                 |
-| Test Sayısı      | 218 (8 paket)               |
-| Giriş Noktası    | `cmd/sophosxg/main.go`      |
+| Bilgi         | Değer                  |
+|---------------|------------------------|
+| Dil           | Go 1.22+               |
+| GUI Framework | Fyne v2.4.4            |
+| Test Sayısı   | 218 (8 paket)          |
+| Giriş Noktası | `cmd/sophosxg/main.go` |
 
 ## Mimari
 
@@ -176,36 +176,32 @@ Kontrol:  GET  msftconnecttest.com/connecttest.txt
 
 ### Güvenlik Mimarisi
 
-| Bileşen            | Açıklama                                         |
-|--------------------|--------------------------------------------------|
-| AES-256-GCM        | Makine kimliğinden türetilen anahtarla şifreleme |
-| Güvenli Kayıt      | URL ve hassas veri otomatik temizliği             |
-| Bellek Güvenliği   | Giriş sonrası şifre bellekten temizlenir          |
-| Dosya İzinleri     | Kimlik bilgisi dosyası 0600 izinleriyle saklanır  |
-| SSL İzolasyonu     | SSL bypass yalnızca auth istemcisine uygulanır    |
+| Bileşen          | Açıklama                                         |
+|------------------|--------------------------------------------------|
+| AES-256-GCM      | Makine kimliğinden türetilen anahtarla şifreleme |
+| Güvenli Kayıt    | URL ve hassas veri otomatik temizliği            |
+| Bellek Güvenliği | Giriş sonrası şifre bellekten temizlenir         |
+| Dosya İzinleri   | Kimlik bilgisi dosyası 0600 izinleriyle saklanır |
+| SSL İzolasyonu   | SSL bypass yalnızca auth istemcisine uygulanır   |
 
 ## Veri Depolama
 
 | Dosya                   | Konum      | Açıklama                           |
-|-------------------------|------------|-------------------------------------|
+|-------------------------|------------|------------------------------------|
 | `user_credentials.json` | Exe dizini | AES-256-GCM şifreli kimlik bilgisi |
-| `sophos-xg-login.log`   | Exe dizini | 10MB otomatik rotasyon              |
+| `sophos-xg-login.log`   | Exe dizini | 10MB otomatik rotasyon             |
 
 **Tam Taşınabilirlik**: Tüm veriler çalıştırılabilir dosya ile birlikte hareket eder.
 
 ## Yerelleştirme
 
-| Dil       | Durum             |
-|-----------|-------------------|
-| Türkçe    | Tam çeviri (65+)  |
-| İngilizce | Tam çeviri (65+)  |
+| Dil       | Durum            |
+|-----------|------------------|
+| Türkçe    | Tam çeviri (65+) |
+| İngilizce | Tam çeviri (65+) |
 
 Dil değişimi anlık, yeniden başlatma gerektirmez ve tercih kalıcı olarak saklanır.
 
 ## Lisans
 
 Bu proje açık kaynaktır.
-
-## Geliştirici
-
-**Kilimcinin Kor Oglu**

@@ -17,43 +17,43 @@ A cross-platform desktop application for managing Sophos XG firewall authenticat
 
 ### Cross-Platform Support
 
-| Platform          | Description                                       |
-|-------------------|---------------------------------------------------|
-| Windows           | GUI + CLI + system tray + registry auto-start      |
-| macOS             | GUI + CLI + LaunchAgent auto-start                 |
-| Linux             | GUI + CLI + XDG autostart                          |
+| Platform | Description                                   |
+|----------|-----------------------------------------------|
+| Windows  | GUI + CLI + system tray + registry auto-start |
+| macOS    | GUI + CLI + LaunchAgent auto-start            |
+| Linux    | GUI + CLI + XDG autostart                     |
 
 ### Dual Mode (GUI + CLI)
 
-| Mode              | Usage                                             |
-|-------------------|---------------------------------------------------|
-| GUI               | Double-click or run without arguments              |
-| CLI Login         | `--login -u user -p pass -s server`                |
-| CLI Logout        | `--logout -u user -s server`                       |
-| CLI Status        | `--status`                                         |
-| Saved Credentials | `--login --config` (uses saved credentials)        |
+| Mode              | Usage                                       |
+|-------------------|---------------------------------------------|
+| GUI               | Double-click or run without arguments       |
+| CLI Login         | `--login -u user -p pass -s server`         |
+| CLI Logout        | `--logout -u user -s server`                |
+| CLI Status        | `--status`                                  |
+| Saved Credentials | `--login --config` (uses saved credentials) |
 
 ### Security
 
-| Feature             | Description                                     |
-|---------------------|-------------------------------------------------|
-| AES-256-GCM         | Machine-derived key encryption                  |
-| Secure Storage      | Encrypted credential storage (0600 permissions) |
-| SSL/TLS Support     | Configurable certificate validation             |
-| Audit Logging       | Structured logging with sensitive data sanitization |
-| Memory Clearing     | Password cleared from memory after login        |
+| Feature         | Description                                         |
+|-----------------|-----------------------------------------------------|
+| AES-256-GCM     | Machine-derived key encryption                      |
+| Secure Storage  | Encrypted credential storage (0600 permissions)     |
+| SSL/TLS Support | Configurable certificate validation                 |
+| Audit Logging   | Structured logging with sensitive data sanitization |
+| Memory Clearing | Password cleared from memory after login            |
 
 ### User Experience
 
-| Feature               | Description                                   |
-|------------------------|-----------------------------------------------|
-| Real-time Language     | English/Turkish switching without restart      |
-| System Locale Detection | Automatic language based on OS locale         |
-| Toast Notifications    | Non-blocking notification system               |
-| System Tray            | Never-closing background operation             |
-| True Black Theme       | OLED-optimized pure black design               |
-| Auto-Start             | Platform-specific system startup integration   |
-| Auto-Login             | Automatic authentication on startup            |
+| Feature                 | Description                                  |
+|-------------------------|----------------------------------------------|
+| Real-time Language      | English/Turkish switching without restart    |
+| System Locale Detection | Automatic language based on OS locale        |
+| Toast Notifications     | Non-blocking notification system             |
+| System Tray             | Never-closing background operation           |
+| True Black Theme        | OLED-optimized pure black design             |
+| Auto-Start              | Platform-specific system startup integration |
+| Auto-Login              | Automatic authentication on startup          |
 
 ### Auto-Reconnection
 
@@ -67,11 +67,11 @@ A cross-platform desktop application for managing Sophos XG firewall authenticat
 
 ### Prerequisites
 
-| Platform | Requirements                        |
-|----------|-------------------------------------|
-| Windows  | Windows 7 or higher                 |
-| macOS    | macOS 10.14 or higher               |
-| Linux    | X11 or Wayland-supported desktop    |
+| Platform | Requirements                         |
+|----------|--------------------------------------|
+| Windows  | Windows 7 or higher                  |
+| macOS    | macOS 10.14 or higher                |
+| Linux    | X11 or Wayland-supported desktop     |
 | Common   | Network access to Sophos XG firewall |
 
 ### Installation
@@ -122,11 +122,11 @@ sophos-xg --version
 
 ### CLI Exit Codes
 
-| Code | Meaning                 |
-|------|-------------------------|
-| 0    | Success                 |
-| 1    | General error           |
-| 2    | Authentication failure  |
+| Code | Meaning                |
+|------|------------------------|
+| 0    | Success                |
+| 1    | General error          |
+| 2    | Authentication failure |
 
 ## Building
 
@@ -142,12 +142,12 @@ go build ./cmd/sophosxg/
 go test ./internal/... -count=1
 ```
 
-| Property         | Value                       |
-|------------------|-----------------------------|
-| Language         | Go 1.22+                    |
-| GUI Framework    | Fyne v2.4.4                 |
-| Test Count       | 218 (8 packages)            |
-| Entry Point      | `cmd/sophosxg/main.go`      |
+| Property      | Value                  |
+|---------------|------------------------|
+| Language      | Go 1.22+               |
+| GUI Framework | Fyne v2.4.4            |
+| Test Count    | 218 (8 packages)       |
+| Entry Point   | `cmd/sophosxg/main.go` |
 
 ## Architecture
 
@@ -176,20 +176,20 @@ Check:  GET  msftconnecttest.com/connecttest.txt
 
 ### Security Architecture
 
-| Component          | Description                                       |
-|--------------------|---------------------------------------------------|
-| AES-256-GCM        | Encryption with machine-derived key               |
-| Secure Logging     | Automatic URL and sensitive data sanitization      |
-| Memory Security    | Password cleared from memory after login           |
-| File Permissions   | Credentials stored with 0600 permissions           |
-| SSL Isolation      | SSL bypass scoped to auth client only              |
+| Component        | Description                                   |
+|------------------|-----------------------------------------------|
+| AES-256-GCM      | Encryption with machine-derived key           |
+| Secure Logging   | Automatic URL and sensitive data sanitization |
+| Memory Security  | Password cleared from memory after login      |
+| File Permissions | Credentials stored with 0600 permissions      |
+| SSL Isolation    | SSL bypass scoped to auth client only         |
 
 ## Data Storage
 
-| File                    | Location      | Description                        |
-|-------------------------|---------------|------------------------------------|
+| File                    | Location      | Description                       |
+|-------------------------|---------------|-----------------------------------|
 | `user_credentials.json` | Exe directory | AES-256-GCM encrypted credentials |
-| `sophos-xg-login.log`   | Exe directory | 10MB automatic rotation            |
+| `sophos-xg-login.log`   | Exe directory | 10MB automatic rotation           |
 
 **Full Portability**: All data travels with the executable.
 
@@ -205,7 +205,3 @@ Language switching is instant, requires no restart, and the preference is persis
 ## License
 
 This project is open source.
-
-## Author
-
-**Kilimcinin Kor Oglu**
