@@ -12,7 +12,7 @@ builds:
     main: ./cmd/sophosxg/
     binary: sophos-xg-login
     ldflags:
-      - -s -w -X 'main.version={{.Version}}'
+      - -s -w -X 'github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion={{.Version}}'
 
 archives:
   - id: "sophos-xg-login"

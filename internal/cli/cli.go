@@ -11,10 +11,10 @@ import (
 	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/config"
 )
 
-const (
-	// AppVersion is the application version string
-	AppVersion = "2.0.0"
+// AppVersion is the application version string, injected at build time via ldflags.
+var AppVersion = "dev"
 
+const (
 	// Exit codes
 	ExitSuccess   = 0
 	ExitError     = 1

@@ -8,7 +8,7 @@ set APP_NAME=sophos-xg-login
 set VERSION=2.0.0
 set BUILD_DIR=build
 set CMD_PATH=.\cmd\sophosxg
-set LDFLAGS=-s -w
+set LDFLAGS=-s -w -X "github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion=%VERSION%"
 
 if "%~1"=="" goto all
 if "%~1"=="all" goto all

@@ -5,7 +5,7 @@ APP_NAME    := sophos-xg-login
 VERSION     := 2.0.0
 BUILD_DIR   := build
 CMD_PATH    := ./cmd/sophosxg
-LDFLAGS     := -s -w
+LDFLAGS     := -s -w -X 'github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion=$(VERSION)'
 GO          := go
 GOTEST      := $(GO) test
 GOBUILD     := $(GO) build

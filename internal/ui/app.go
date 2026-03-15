@@ -20,6 +20,7 @@ import (
 
 	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/auth"
 	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/autostart"
+	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli"
 	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/config"
 	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/i18n"
 	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/logging"
@@ -120,7 +121,7 @@ func NewApplication(startMinimized bool) *Application {
 
 	a.autoStart = autostart.NewManager("Sophos XG User Login", exePath)
 
-	a.logger.LogApplicationStart("2.0.0")
+	a.logger.LogApplicationStart(cli.AppVersion)
 
 	a.buildUI()
 

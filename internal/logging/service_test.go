@@ -618,9 +618,9 @@ func TestLogSessionCheck_IncludesDuration(t *testing.T) {
 
 func TestLogApplicationStart_ContainsVersion(t *testing.T) {
 	svc, dir := newTestService(t, false)
-	svc.LogApplicationStart("2.0.0")
+	svc.LogApplicationStart("test-version")
 
-	if !strings.Contains(readLog(t, dir), "2.0.0") {
+	if !strings.Contains(readLog(t, dir), "test-version") {
 		t.Error("expected version in application start log")
 	}
 }
