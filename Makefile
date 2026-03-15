@@ -113,10 +113,10 @@ lint: vet fmt ## Run all linters (vet + fmt)
 # ─────────────────────────────────────────────────
 
 run: ## Run the application (GUI mode)
-	$(GO) run $(CMD_PATH)
+	$(GO) run -ldflags "$(LDFLAGS)" $(CMD_PATH)
 
 run-cli: ## Run CLI version check
-	$(GO) run $(CMD_PATH) --version
+	$(GO) run -ldflags "$(LDFLAGS)" $(CMD_PATH) --version
 
 clean: ## Remove build artifacts
 	@echo "Cleaning build directory..."

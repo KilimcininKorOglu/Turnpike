@@ -157,11 +157,11 @@ REM Run & utility
 REM ─────────────────────────────────────────────────
 
 :run
-go run %CMD_PATH%
+go run -ldflags "%LDFLAGS%" %CMD_PATH%
 goto end
 
 :run_cli
-go run %CMD_PATH% --version
+go run -ldflags "%LDFLAGS%" %CMD_PATH% --version
 goto end
 
 :clean
