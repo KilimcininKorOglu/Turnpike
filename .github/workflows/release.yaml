@@ -42,6 +42,13 @@ jobs:
           fetch-depth: 0
       - run: git config --global --add safe.directory /__w/Turnpike/Turnpike
       - run: git fetch --force --tags
+      - name: Install Fyne Linux build dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends pkg-config libgl-dev libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libxxf86vm-dev
+          dpkg --add-architecture arm64
+          apt-get update
+          apt-get install -y --no-install-recommends libgl-dev:arm64 libx11-dev:arm64 libxcursor-dev:arm64 libxrandr-dev:arm64 libxinerama-dev:arm64 libxi-dev:arm64 libxxf86vm-dev:arm64 || true
       - name: Release
         run: goreleaser release --clean
         env:
