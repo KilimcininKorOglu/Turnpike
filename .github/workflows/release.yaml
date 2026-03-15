@@ -29,12 +29,17 @@ jobs:
   build:
     needs: test
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
             goos: linux
             goarch: amd64
             artifact: turnpike-linux-amd64
+          - os: ubuntu-24.04-arm
+            goos: linux
+            goarch: arm64
+            artifact: turnpike-linux-arm64
           - os: macos-latest
             goos: darwin
             goarch: arm64
