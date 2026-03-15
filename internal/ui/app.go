@@ -302,7 +302,7 @@ func (a *Application) buildUI() {
 		),
 		container.NewGridWithColumns(2,
 			widget.NewLabel(a.localization.GetString("LabelCaptivePortal")),
-			container.NewHBox(a.portEntry, widget.NewLabel(a.localization.GetString("LabelPortStandard"))),
+			container.NewHBox(container.NewGridWrap(fyne.NewSize(80, a.portEntry.MinSize().Height), a.portEntry), widget.NewLabel(a.localization.GetString("LabelPortStandard"))),
 		),
 		a.useHTTPSCheck,
 		a.skipSSLCheck,

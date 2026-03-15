@@ -11,7 +11,7 @@ import (
 var allEnglishTranslations = map[string]string{
 	// Window / Button / Status
 	"WindowTitle":              "Turnpike",
-	"ButtonLogin":              "Log In",
+	"ButtonLogin":              "Login",
 	"ButtonLogout":             "Logout",
 	"ButtonDisconnect":         "Disconnect",
 	"ButtonConnecting":         "Connecting...",
@@ -66,7 +66,7 @@ var allEnglishTranslations = map[string]string{
 	"LabelPortStandard":         "(Standard: 8090)",
 	// Checkboxes
 	"CheckboxUseHTTPS":             "Use HTTPS (SSL/TLS)",
-	"CheckboxSkipSSL":              "Skip SSL certificate validation (for self-signed certificates)",
+	"CheckboxSkipSSL":              "Skip SSL certificate validation",
 	"CheckboxRememberCredentials":  "Remember credentials and settings",
 	// Info / Success
 	"InfoCredentialsUpgraded":  "Security enhanced: Credentials encrypted",
@@ -94,7 +94,7 @@ var allEnglishTranslations = map[string]string{
 var allTurkishTranslations = map[string]string{
 	// Window / Button / Status
 	"WindowTitle":              "Turnpike",
-	"ButtonLogin":              "Giriş Yap",
+	"ButtonLogin":              "Giriş",
 	"ButtonLogout":             "Çıkış",
 	"ButtonDisconnect":         "Bağlantıyı Kes",
 	"ButtonConnecting":         "Bağlanıyor...",
@@ -149,7 +149,7 @@ var allTurkishTranslations = map[string]string{
 	"LabelPortStandard":         "(Standart: 8090)",
 	// Checkboxes
 	"CheckboxUseHTTPS":            "HTTPS kullan (SSL/TLS)",
-	"CheckboxSkipSSL":             "SSL sertifika doğrulamasını atla (kendinden imzalı sertifikalar için)",
+	"CheckboxSkipSSL":             "SSL sertifika doğrulamasını atla",
 	"CheckboxRememberCredentials": "Kimlik bilgileri ve ayarları hatırla",
 	// Info / Success
 	"InfoCredentialsUpgraded": "Güvenlik iyileştirildi: Kimlik bilgileri şifrelendi",
@@ -399,11 +399,11 @@ func TestSetLanguage_UpdatesTranslationsReturned(t *testing.T) {
 	if englishVal == turkishVal {
 		t.Errorf("expected different translations after language switch, both returned %q", englishVal)
 	}
-	if englishVal != "Log In" {
-		t.Errorf("expected English value %q, got %q", "Log In", englishVal)
+	if englishVal != "Login" {
+		t.Errorf("expected English value %q, got %q", "Login", englishVal)
 	}
-	if turkishVal != "Giriş Yap" {
-		t.Errorf("expected Turkish value %q, got %q", "Giriş Yap", turkishVal)
+	if turkishVal != "Giriş" {
+		t.Errorf("expected Turkish value %q, got %q", "Giriş", turkishVal)
 	}
 }
 

@@ -196,8 +196,8 @@ func (m *Manager) initTranslations() {
 		"Turnpike")
 
 	add("ButtonLogin",
-		"Log In",
-		"Giriş Yap")
+		"Login",
+		"Giriş")
 
 	add("ButtonLogout",
 		"Logout",
@@ -411,8 +411,8 @@ func (m *Manager) initTranslations() {
 		"HTTPS kullan (SSL/TLS)")
 
 	add("CheckboxSkipSSL",
-		"Skip SSL certificate validation (for self-signed certificates)",
-		"SSL sertifika doğrulamasını atla (kendinden imzalı sertifikalar için)")
+		"Skip SSL certificate validation",
+		"SSL sertifika doğrulamasını atla")
 
 	add("CheckboxRememberCredentials",
 		"Remember credentials and settings",
