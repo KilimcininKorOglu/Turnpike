@@ -15,15 +15,11 @@ import (
 )
 
 const (
-	// EncryptedPrefix identifies encrypted passwords produced by this package.
-	// NOTE: The .NET version uses "SXGV1:" with Windows DPAPI encryption.
-	// SXGV1 and SXGV2 formats are NOT interoperable. Users migrating from the
-	// .NET version to the Go version will need to re-enter their credentials.
+	// encryptionPrefix identifies values encrypted by this application.
 	EncryptedPrefix = "SXGV2:"
 
-	// appEntropy is application-specific entropy mixed into the key derivation.
-	// Legacy entropy string kept for backward compatibility with existing encrypted credentials
-	appEntropy = "SophosXGUserLogin2024"
+	// Application-specific entropy for AES-256-GCM key derivation
+	appEntropy = "Turnpike2024"
 )
 
 // EncryptPassword encrypts a plaintext password using AES-256-GCM with a
@@ -105,24 +101,8 @@ func DecryptPassword(encryptedPassword string) (string, error) {
 
 // IsEncrypted reports whether password appears to be an encrypted value
 // produced by this package.
-//
-// Detection rules (matching C# PasswordEncryption.IsEncrypted):
-//  1. Empty string → false
-//  2. Has EncryptedPrefix → true
-//  3. Valid base64 that decodes to ≥ 50 bytes → true (legacy heuristic)
-//  4. Otherwise → false
 func IsEncrypted(password string) bool {
-	if password == "" {
-		return false
-	}
-	if strings.HasPrefix(password, EncryptedPrefix) {
-		return true
-	}
-	decoded, err := base64.StdEncoding.DecodeString(password)
-	if err != nil {
-		return false
-	}
-	return len(decoded) >= 50
+	return strings.HasPrefix(password, EncryptedPrefix)
 }
 
 // deriveKey builds a 32-byte AES-256 key from the machine ID and appEntropy.

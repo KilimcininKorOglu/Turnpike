@@ -22,10 +22,9 @@ type Credentials struct {
 
 // CredentialManager handles loading and saving credentials
 type CredentialManager struct {
-	settingsDir           string
-	credentials           Credentials
-	rememberCredentials   bool
-	needsPasswordMigration bool
+	settingsDir         string
+	credentials         Credentials
+	rememberCredentials bool
 }
 
 // NewCredentialManager creates a new credential manager
@@ -119,19 +118,6 @@ func (cm *CredentialManager) SetRememberCredentials(remember bool) {
 	}
 }
 
-// NeedsPasswordMigration returns true if password needs re-encryption
-func (cm *CredentialManager) NeedsPasswordMigration() bool {
-	return cm.needsPasswordMigration
-}
-
-// MigratePasswordEncryption re-encrypts the password
-func (cm *CredentialManager) MigratePasswordEncryption() {
-	if cm.credentials.Username != "" && cm.credentials.Password != "" {
-		cm.SaveCredentials()
-		cm.needsPasswordMigration = false
-	}
-}
-
 // SaveCredentials persists credentials to disk with encryption
 func (cm *CredentialManager) SaveCredentials() error {
 	if !cm.rememberCredentials {
@@ -185,13 +171,14 @@ func (cm *CredentialManager) loadCredentials() {
 		return
 	}
 
-	// Decrypt password
-	decryptedPassword, err := security.DecryptPassword(stored.Password)
-	if err != nil || (decryptedPassword == "" && stored.Password != "") {
-		// Check if it's a plaintext password (legacy)
-		if !security.IsEncrypted(stored.Password) {
-			decryptedPassword = stored.Password
-			cm.needsPasswordMigration = true
+	// Only decrypt passwords that carry the encryption prefix.
+	// Unrecognised values (plaintext, corrupted, etc.) are discarded;
+	// the user must re-enter them.
+	var decryptedPassword string
+	if security.IsEncrypted(stored.Password) {
+		decrypted, err := security.DecryptPassword(stored.Password)
+		if err == nil {
+			decryptedPassword = decrypted
 		}
 	}
 

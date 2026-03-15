@@ -133,14 +133,6 @@ func NewApplication(startMinimized bool) *Application {
 		}
 	}
 
-	// Handle password migration
-	if a.credManager.NeedsPasswordMigration() {
-		a.logger.LogSecurityEvent("PasswordMigration", "Starting migration", "")
-		a.credManager.MigratePasswordEncryption()
-		a.notification.ShowInfo(a.localization.GetString("InfoCredentialsUpgraded"), config.NotificationDurationInfo)
-		a.logger.LogSecurityEvent("PasswordMigration", "Completed", "")
-	}
-
 	// System tray integration
 	a.setupSystemTray()
 

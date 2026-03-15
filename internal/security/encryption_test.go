@@ -109,28 +109,6 @@ func TestRoundTrip_UnicodePassword(t *testing.T) {
 	}
 }
 
-func TestRoundTrip_WithoutPrefix_StillDecrypts(t *testing.T) {
-	// DecryptPassword must handle input that lacks the prefix (legacy path).
-	original := "legacyPassword"
-
-	encrypted, err := EncryptPassword(original)
-	if err != nil {
-		t.Fatalf("EncryptPassword error: %v", err)
-	}
-
-	// Strip prefix to simulate legacy stored value.
-	withoutPrefix := strings.TrimPrefix(encrypted, EncryptedPrefix)
-
-	decrypted, err := DecryptPassword(withoutPrefix)
-	if err != nil {
-		t.Fatalf("DecryptPassword (no prefix) error: %v", err)
-	}
-
-	if decrypted != original {
-		t.Errorf("round-trip without prefix mismatch: got %q, want %q", decrypted, original)
-	}
-}
-
 // ---------------------------------------------------------------------------
 // IsEncrypted
 // ---------------------------------------------------------------------------
@@ -157,29 +135,11 @@ func TestIsEncrypted_PlaintextPassword_ReturnsFalse(t *testing.T) {
 	}
 }
 
-func TestIsEncrypted_ShortBase64_ReturnsFalse(t *testing.T) {
-	// Base64 of fewer than 50 bytes must return false (heuristic check).
-	// "short" encodes to 5 bytes, well below the 50-byte threshold.
-	shortBase64 := "c2hvcnQ=" // base64("short") = 5 bytes
+func TestIsEncrypted_Base64WithoutPrefix_ReturnsFalse(t *testing.T) {
+	// A base64 string without the encryption prefix must return false.
+	shortBase64 := "c2hvcnQ=" // base64("short")
 	if IsEncrypted(shortBase64) {
-		t.Errorf("expected false for short base64 string %q", shortBase64)
-	}
-}
-
-func TestIsEncrypted_LongBase64_WithoutPrefix_ReturnsTrue(t *testing.T) {
-	// A valid base64 string that decodes to ≥ 50 bytes should be treated as
-	// a legacy encrypted value.
-	// AES-GCM overhead: 12 (nonce) + len(plaintext) + 16 (tag) must be ≥ 50,
-	// so the plaintext must be at least 22 bytes. We use a password long enough
-	// to guarantee the decoded blob clears the 50-byte threshold.
-	longPassword := "this-password-is-long-enough-for-the-test"
-	encrypted, err := EncryptPassword(longPassword)
-	if err != nil {
-		t.Fatalf("EncryptPassword error: %v", err)
-	}
-	withoutPrefix := strings.TrimPrefix(encrypted, EncryptedPrefix)
-	if !IsEncrypted(withoutPrefix) {
-		t.Error("expected true for long base64 string without prefix")
+		t.Errorf("expected false for base64 string without prefix %q", shortBase64)
 	}
 }
 
