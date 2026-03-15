@@ -1,6 +1,6 @@
-# Sophos XG User Login
+# Turnpike
 
-A cross-platform desktop application for managing Sophos XG firewall authentication sessions with enterprise-grade security and intelligent auto-reconnection capabilities. Supports both GUI and CLI modes from a single binary.
+A cross-platform desktop application for managing Sophos XG captive portal authentication sessions with enterprise-grade security and intelligent auto-reconnection capabilities. Supports both GUI and CLI modes from a single binary.
 
 ![Version](https://img.shields.io/badge/version-2.0.2-blue.svg)
 ![Go](https://img.shields.io/badge/Go-1.22+-00ADD8.svg)
@@ -11,7 +11,7 @@ A cross-platform desktop application for managing Sophos XG firewall authenticat
 
 ## Screenshot
 
-![Sophos XG User Login - English Interface](screenshot/en.png)
+![Turnpike - English Interface](screenshot/en.png)
 
 ## Features
 
@@ -67,18 +67,18 @@ A cross-platform desktop application for managing Sophos XG firewall authenticat
 
 ### Prerequisites
 
-| Platform | Requirements                         |
-|----------|--------------------------------------|
-| Windows  | Windows 7 or higher                  |
-| macOS    | macOS 10.14 or higher                |
-| Linux    | X11 or Wayland-supported desktop     |
-| Common   | Network access to Sophos XG firewall |
+| Platform | Requirements                              |
+|----------|-------------------------------------------|
+| Windows  | Windows 7 or higher                       |
+| macOS    | macOS 10.14 or higher                     |
+| Linux    | X11 or Wayland-supported desktop          |
+| Common   | Network access to captive portal firewall |
 
 ### Installation
 
 1. Download the latest release or build from source
 2. Run the executable (GUI opens automatically)
-3. Configure your Sophos XG server settings
+3. Configure your firewall server settings
 
 ### First Time Setup
 
@@ -101,23 +101,23 @@ A cross-platform desktop application for managing Sophos XG firewall authenticat
 
 ```bash
 # GUI mode (default)
-sophos-xg
-sophos-xg --gui
-sophos-xg --gui --minimized
+turnpike
+turnpike --gui
+turnpike --gui --minimized
 
 # Login
-sophos-xg --login -u admin -p pass -s 172.16.100.2
-sophos-xg --login -u admin -s 172.16.100.2          # password prompted interactively
-sophos-xg --login --config                           # use saved credentials
+turnpike --login -u admin -p pass -s 172.16.100.2
+turnpike --login -u admin -s 172.16.100.2          # password prompted interactively
+turnpike --login --config                           # use saved credentials
 
 # Logout
-sophos-xg --logout -u admin -s 172.16.100.2
+turnpike --logout -u admin -s 172.16.100.2
 
 # Status check
-sophos-xg --status
+turnpike --status
 
 # Version
-sophos-xg --version
+turnpike --version
 ```
 
 ### CLI Exit Codes
@@ -133,7 +133,7 @@ sophos-xg --version
 ### Build from Source
 
 ```bash
-go build ./cmd/sophosxg/
+go build ./cmd/turnpike/
 ```
 
 ### Run Tests
@@ -147,14 +147,14 @@ go test ./internal/... -count=1
 | Language      | Go 1.22+               |
 | GUI Framework | Fyne v2.4.4            |
 | Test Count    | 218 (8 packages)       |
-| Entry Point   | `cmd/sophosxg/main.go` |
+| Entry Point   | `cmd/turnpike/main.go` |
 
 ## Architecture
 
 ### Project Structure
 
 ```
-cmd/sophosxg/         Entry point, CLI/GUI routing
+cmd/turnpike/         Entry point, CLI/GUI routing
 internal/
   auth/               Captive portal authentication service
   cli/                CLI command handlers, password prompt
@@ -189,7 +189,7 @@ Check:  GET  msftconnecttest.com/connecttest.txt
 | File                    | Location      | Description                       |
 |-------------------------|---------------|-----------------------------------|
 | `user_credentials.json` | Exe directory | AES-256-GCM encrypted credentials |
-| `sophos-xg-login.log`   | Exe directory | 10MB automatic rotation           |
+| `turnpike.log`          | Exe directory | 10MB automatic rotation           |
 
 **Full Portability**: All data travels with the executable.
 

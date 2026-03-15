@@ -1,6 +1,6 @@
-# Sophos XG Kullanıcı Girişi
+# Turnpike
 
-Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını yönetmek için kurumsal düzeyde güvenlik ve akıllı otomatik yeniden bağlanma özellikleri sunan çok platformlu masaüstü uygulaması. Tek bir çalıştırılabilir dosyadan hem GUI hem CLI desteği sunar.
+Sophos XG kimlik doğrulama oturumlarını (captive portal) yönetmek için kurumsal düzeyde güvenlik ve akıllı otomatik yeniden bağlanma özellikleri sunan çok platformlu masaüstü uygulaması. Tek bir çalıştırılabilir dosyadan hem GUI hem CLI desteği sunar.
 
 ![Version](https://img.shields.io/badge/versiyon-2.0.2-blue.svg)
 ![Go](https://img.shields.io/badge/Go-1.22+-00ADD8.svg)
@@ -11,7 +11,7 @@ Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını yönetmek için kur
 
 ## Ekran Görüntüsü
 
-![Sophos XG User Login - Türkçe Arayüz](screenshot/tr.png)
+![Turnpike - Türkçe Arayüz](screenshot/tr.png)
 
 ## Özellikler
 
@@ -72,13 +72,13 @@ Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını yönetmek için kur
 | Windows  | Windows 7 veya üzeri                   |
 | macOS    | macOS 10.14 veya üzeri                 |
 | Linux    | X11 veya Wayland destekli masaüstü     |
-| Ortak    | Sophos XG güvenlik duvarına ağ erişimi |
+| Ortak    | Güvenlik duvarına ağ erişimi (captive portal) |
 
 ### Kurulum
 
 1. En son sürümü indirin veya kaynaktan derleyin
 2. Çalıştırılabilir dosyayı çalıştırın (GUI otomatik açılır)
-3. Sophos XG sunucu ayarlarınızı yapılandırın
+3. Güvenlik duvarı sunucu ayarlarınızı yapılandırın
 
 ### İlk Yapılandırma
 
@@ -101,23 +101,23 @@ Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını yönetmek için kur
 
 ```bash
 # GUI modu (varsayılan)
-sophos-xg
-sophos-xg --gui
-sophos-xg --gui --minimized
+turnpike
+turnpike --gui
+turnpike --gui --minimized
 
 # Giriş
-sophos-xg --login -u admin -p şifre -s 172.16.100.2
-sophos-xg --login -u admin -s 172.16.100.2          # şifre interaktif sorulur
-sophos-xg --login --config                           # kaydedilmiş bilgilerle
+turnpike --login -u admin -p şifre -s 172.16.100.2
+turnpike --login -u admin -s 172.16.100.2          # şifre interaktif sorulur
+turnpike --login --config                           # kaydedilmiş bilgilerle
 
 # Çıkış
-sophos-xg --logout -u admin -s 172.16.100.2
+turnpike --logout -u admin -s 172.16.100.2
 
 # Durum kontrolü
-sophos-xg --status
+turnpike --status
 
 # Versiyon
-sophos-xg --version
+turnpike --version
 ```
 
 ### CLI Çıkış Kodları
@@ -133,7 +133,7 @@ sophos-xg --version
 ### Kaynaktan Derleme
 
 ```bash
-go build ./cmd/sophosxg/
+go build ./cmd/turnpike/
 ```
 
 ### Testleri Çalıştırma
@@ -147,14 +147,14 @@ go test ./internal/... -count=1
 | Dil           | Go 1.22+               |
 | GUI Framework | Fyne v2.4.4            |
 | Test Sayısı   | 218 (8 paket)          |
-| Giriş Noktası | `cmd/sophosxg/main.go` |
+| Giriş Noktası | `cmd/turnpike/main.go` |
 
 ## Mimari
 
 ### Proje Yapısı
 
 ```
-cmd/sophosxg/         Giriş noktası, CLI/GUI yönlendirmesi
+cmd/turnpike/         Giriş noktası, CLI/GUI yönlendirmesi
 internal/
   auth/               Captive portal kimlik doğrulama servisi
   cli/                CLI komut işleyicileri, şifre istemi
@@ -189,7 +189,7 @@ Kontrol:  GET  msftconnecttest.com/connecttest.txt
 | Dosya                   | Konum      | Açıklama                           |
 |-------------------------|------------|------------------------------------|
 | `user_credentials.json` | Exe dizini | AES-256-GCM şifreli kimlik bilgisi |
-| `sophos-xg-login.log`   | Exe dizini | 10MB otomatik rotasyon             |
+| `turnpike.log`   | Exe dizini | 10MB otomatik rotasyon             |
 
 **Tam Taşınabilirlik**: Tüm veriler çalıştırılabilir dosya ile birlikte hareket eder.
 
