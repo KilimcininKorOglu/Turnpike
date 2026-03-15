@@ -1,6 +1,6 @@
 # Turnpike
 
-A cross-platform desktop application for managing Sophos XG captive portal authentication sessions with enterprise-grade security and intelligent auto-reconnection capabilities. Supports both GUI and CLI modes from a single binary.
+A cross-platform desktop application for managing Sophos XG firewall captive portal authentication sessions with enterprise-grade security and intelligent auto-reconnection capabilities. Supports both GUI and CLI modes from a single binary.
 
 ![Version](https://img.shields.io/badge/version-2.0.2-blue.svg)
 ![Go](https://img.shields.io/badge/Go-1.22+-00ADD8.svg)
@@ -146,7 +146,7 @@ go test ./internal/... -count=1
 |---------------|------------------------|
 | Language      | Go 1.22+               |
 | GUI Framework | Fyne v2.4.4            |
-| Test Count    | 218 (8 packages)       |
+| Test Count    | 189 (8 packages)       |
 | Entry Point   | `cmd/turnpike/main.go` |
 
 ## Architecture

@@ -1,6 +1,6 @@
 # Turnpike
 
-Sophos XG kimlik doğrulama oturumlarını (captive portal) yönetmek için kurumsal düzeyde güvenlik ve akıllı otomatik yeniden bağlanma özellikleri sunan çok platformlu masaüstü uygulaması. Tek bir çalıştırılabilir dosyadan hem GUI hem CLI desteği sunar.
+Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını (captive portal) yönetmek için kurumsal düzeyde güvenlik ve akıllı otomatik yeniden bağlanma özellikleri sunan çok platformlu masaüstü uygulaması. Tek bir çalıştırılabilir dosyadan hem GUI hem CLI desteği sunar.
 
 ![Version](https://img.shields.io/badge/versiyon-2.0.2-blue.svg)
 ![Go](https://img.shields.io/badge/Go-1.22+-00ADD8.svg)
@@ -67,11 +67,11 @@ Sophos XG kimlik doğrulama oturumlarını (captive portal) yönetmek için kuru
 
 ### Gereksinimler
 
-| Platform | Gereksinimler                          |
-|----------|----------------------------------------|
-| Windows  | Windows 7 veya üzeri                   |
-| macOS    | macOS 10.14 veya üzeri                 |
-| Linux    | X11 veya Wayland destekli masaüstü     |
+| Platform | Gereksinimler                                 |
+|----------|-----------------------------------------------|
+| Windows  | Windows 7 veya üzeri                          |
+| macOS    | macOS 10.14 veya üzeri                        |
+| Linux    | X11 veya Wayland destekli masaüstü            |
 | Ortak    | Güvenlik duvarına ağ erişimi (captive portal) |
 
 ### Kurulum
@@ -146,7 +146,7 @@ go test ./internal/... -count=1
 |---------------|------------------------|
 | Dil           | Go 1.22+               |
 | GUI Framework | Fyne v2.4.4            |
-| Test Sayısı   | 218 (8 paket)          |
+| Test Sayısı   | 189 (8 paket)          |
 | Giriş Noktası | `cmd/turnpike/main.go` |
 
 ## Mimari
@@ -189,7 +189,7 @@ Kontrol:  GET  msftconnecttest.com/connecttest.txt
 | Dosya                   | Konum      | Açıklama                           |
 |-------------------------|------------|------------------------------------|
 | `user_credentials.json` | Exe dizini | AES-256-GCM şifreli kimlik bilgisi |
-| `turnpike.log`   | Exe dizini | 10MB otomatik rotasyon             |
+| `turnpike.log`          | Exe dizini | 10MB otomatik rotasyon             |
 
 **Tam Taşınabilirlik**: Tüm veriler çalıştırılabilir dosya ile birlikte hareket eder.
 
