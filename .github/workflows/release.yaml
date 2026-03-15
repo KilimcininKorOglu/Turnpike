@@ -21,35 +21,109 @@ jobs:
         run: >
           sudo apt-get update &&
           sudo apt-get install -y
-          libgl-dev
-          libx11-dev
-          libxcursor-dev
-          libxrandr-dev
-          libxinerama-dev
-          libxi-dev
-          libxxf86vm-dev
+          libgl-dev libx11-dev libxcursor-dev
+          libxrandr-dev libxinerama-dev libxi-dev libxxf86vm-dev
       - name: Run tests
         run: make test
 
-  goreleaser:
+  build:
     needs: test
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            goos: linux
+            goarch: amd64
+            artifact: turnpike-linux-amd64
+          - os: macos-latest
+            goos: darwin
+            goarch: arm64
+            artifact: turnpike-darwin-arm64
+          - os: macos-13
+            goos: darwin
+            goarch: amd64
+            artifact: turnpike-darwin-amd64
+          - os: windows-latest
+            goos: windows
+            goarch: amd64
+            artifact: turnpike-windows-amd64.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>=1.22.0'
+          cache: true
+
+      - name: Install Fyne dependencies (Linux)
+        if: matrix.goos == 'linux'
+        run: >
+          sudo apt-get update &&
+          sudo apt-get install -y
+          libgl-dev libx11-dev libxcursor-dev
+          libxrandr-dev libxinerama-dev libxi-dev libxxf86vm-dev
+
+      - name: Build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: 1
+        run: >
+          go build -trimpath
+          -ldflags "-s -w -X 'github.com/KilimcininKorOglu/Turnpike/internal/cli.AppVersion=${{ github.ref_name }}'"
+          -o ${{ matrix.artifact }}
+          ./cmd/turnpike/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.artifact }}
+
+  release:
+    needs: build
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/goreleaser/goreleaser-cross:v1.22
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: git config --global --add safe.directory /__w/Turnpike/Turnpike
-      - run: git fetch --force --tags
-      - name: Install Fyne Linux build dependencies
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+
+      - name: Prepare release files
         run: |
-          apt-get update
-          apt-get install -y --no-install-recommends pkg-config libgl-dev libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libxxf86vm-dev
-          dpkg --add-architecture arm64
-          apt-get update
-          apt-get install -y --no-install-recommends libgl-dev:arm64 libx11-dev:arm64 libxcursor-dev:arm64 libxrandr-dev:arm64 libxinerama-dev:arm64 libxi-dev:arm64 libxxf86vm-dev:arm64 || true
-      - name: Release
-        run: goreleaser release --clean
+          mkdir -p release
+          for dir in dist/*/; do
+            name=$(basename "$dir")
+            if [[ "$name" == *.exe ]]; then
+              cp "$dir/$name" "release/$name"
+            else
+              chmod +x "$dir/$name"
+              tar czf "release/${name}.tar.gz" -C "$dir" "$name"
+            fi
+          done
+          cd release && sha256sum * > checksums.txt
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          prev_tag=$(git tag --sort=-version:refname | head -2 | tail -1) || true
+          if [ -n "$prev_tag" ] && [ "$prev_tag" != "${{ github.ref_name }}" ]; then
+            echo "## Changes since $prev_tag" > changelog.md
+            git log --oneline "$prev_tag..HEAD" >> changelog.md
+          else
+            echo "## Initial Release" > changelog.md
+            git log --oneline >> changelog.md
+          fi
+
+      - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          gh release create ${{ github.ref_name }}
+          release/*
+          --title "Turnpike ${{ github.ref_name }}"
+          --notes-file changelog.md
