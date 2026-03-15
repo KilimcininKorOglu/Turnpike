@@ -1,3 +1,18 @@
+version: 2
+
+before:
+  hooks:
+    - >
+      apt-get update && apt-get install -y --no-install-recommends
+      pkg-config
+      libgl-dev
+      libx11-dev
+      libxcursor-dev
+      libxrandr-dev
+      libxinerama-dev
+      libxi-dev
+      libxxf86vm-dev
+
 builds:
   - id: linux-amd64
     main: ./cmd/turnpike/
