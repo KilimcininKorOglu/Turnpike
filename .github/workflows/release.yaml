@@ -39,7 +39,7 @@ jobs:
             goos: darwin
             goarch: arm64
             artifact: turnpike-darwin-arm64
-          - os: macos-13
+          - os: macos-latest
             goos: darwin
             goarch: amd64
             artifact: turnpike-darwin-amd64
