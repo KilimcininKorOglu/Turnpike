@@ -503,9 +503,9 @@ func (a *Application) performLogin() {
 		case auth.StatusWrongPassword:
 			statusColor = ColorError
 		case auth.StatusMaxLimit:
-			statusColor = ColorInfo // Blue (matching .NET)
+			statusColor = ColorInfo
 		case auth.StatusDataLimit:
-			statusColor = ColorWarning // Yellow/Orange (matching .NET)
+			statusColor = ColorWarning
 		default:
 			statusColor = ColorError
 		}
