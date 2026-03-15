@@ -258,7 +258,7 @@ func (s *Service) LogDebug(message, context string) {
 func (s *Service) logMessage(level Level, message, category string) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05.000")
 	levelStr := string(level)
-	// Pad level to 5 characters to match the C# PadRight(5) behaviour.
+	// Pad level to 5 characters for alignment.
 	for len(levelStr) < 5 {
 		levelStr += " "
 	}
@@ -309,7 +309,7 @@ func sanitizeURL(rawURL string) string {
 		return "[URL parsing failed]"
 	}
 
-	// Reconstruct without query string or fragment, mirroring the C# implementation.
+	// Reconstruct without query string or fragment.
 	port := parsed.Port()
 	host := parsed.Hostname()
 	scheme := parsed.Scheme

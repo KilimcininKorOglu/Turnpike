@@ -22,7 +22,6 @@ type PreferenceStore interface {
 }
 
 // Manager handles application localization.
-// It is a direct port of LocalizationManager.cs from the C# WPF application.
 // Language changes are broadcast to all registered listeners via callbacks.
 type Manager struct {
 	mu              sync.RWMutex
@@ -179,7 +178,6 @@ func (m *Manager) OnLanguageChanged(callback func(string)) {
 }
 
 // initTranslations populates the full translation table.
-// All 56+ strings are ported directly from LocalizationManager.GetFallbackString in C#.
 func (m *Manager) initTranslations() {
 	t := make(map[string]map[string]string)
 
@@ -470,7 +468,6 @@ func (m *Manager) initTranslations() {
 		"Exit",
 		"Çıkış")
 
-	// SSL two-line labels (for potential future use matching .NET layout)
 	add("CheckboxSkipSSLLine1",
 		"Skip SSL certificate validation",
 		"SSL sertifika doğrulamasını atla")

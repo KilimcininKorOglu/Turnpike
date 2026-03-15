@@ -27,7 +27,7 @@ func TestValidatePort(t *testing.T) {
 	}
 }
 
-// TestConstantValues ensures the ported constants match the C# source values.
+// TestConstantValues ensures the ported constants match expected constant values.
 func TestConstantValues(t *testing.T) {
 	if DefaultServerIP != "172.16.100.2" {
 		t.Errorf("DefaultServerIP = %q, want %q", DefaultServerIP, "172.16.100.2")
@@ -78,7 +78,7 @@ func TestConstantValues(t *testing.T) {
 	}
 }
 
-// TestTimeoutValues verifies the duration variables match the C# TimeSpan equivalents.
+// TestTimeoutValues verifies the duration variables match expected timeout values.
 func TestTimeoutValues(t *testing.T) {
 	if HTTPRequestTimeout != 30*time.Second {
 		t.Errorf("HTTPRequestTimeout = %v, want 30s", HTTPRequestTimeout)

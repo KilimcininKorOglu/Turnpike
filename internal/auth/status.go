@@ -1,7 +1,6 @@
 package auth
 
 // LoginStatus represents the authentication state of a session.
-// It is a direct port of the LoginStatus enum from the C# WPF application.
 type LoginStatus int
 
 const (

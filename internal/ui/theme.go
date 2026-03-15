@@ -12,7 +12,7 @@ type OLEDTheme struct{}
 
 var _ fyne.Theme = (*OLEDTheme)(nil)
 
-// Color definitions matching the C# WPF application
+// Color definitions for OLED dark theme
 var (
 	ColorPureBlack   = color.NRGBA{R: 0, G: 0, B: 0, A: 255}       // #000000
 	ColorNearBlack   = color.NRGBA{R: 26, G: 26, B: 26, A: 255}    // #1A1A1A

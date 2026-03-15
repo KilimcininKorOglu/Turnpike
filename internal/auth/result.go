@@ -1,7 +1,6 @@
 package auth
 
 // LoginResult holds the outcome of a login or logout operation.
-// It is a direct port of the LoginResult class from the C# WPF application.
 type LoginResult struct {
 	// Success indicates whether the operation completed successfully.
 	Success bool
@@ -18,7 +17,7 @@ type LoginResult struct {
 }
 
 // NewLoginResult constructs a LoginResult with all fields explicitly provided.
-// This is the primary constructor, equivalent to the C# LoginResult(bool, LoginStatus, string, string).
+// NewLoginResult creates a LoginResult with all fields.
 func NewLoginResult(success bool, status LoginStatus, message string, responseData string) LoginResult {
 	return LoginResult{
 		Success:      success,
@@ -29,7 +28,7 @@ func NewLoginResult(success bool, status LoginStatus, message string, responseDa
 }
 
 // CreateSuccess constructs a successful LoginResult with no raw response data.
-// Equivalent to the C# static factory LoginResult.CreateSuccess(LoginStatus, string).
+// CreateSuccess creates a successful LoginResult.
 func CreateSuccess(status LoginStatus, message string) LoginResult {
 	return LoginResult{
 		Success:      true,
@@ -40,7 +39,7 @@ func CreateSuccess(status LoginStatus, message string) LoginResult {
 }
 
 // CreateFailure constructs a failed LoginResult with no raw response data.
-// Equivalent to the C# static factory LoginResult.CreateFailure(LoginStatus, string).
+// CreateFailure creates a failed LoginResult.
 func CreateFailure(status LoginStatus, message string) LoginResult {
 	return LoginResult{
 		Success:      false,

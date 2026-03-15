@@ -35,7 +35,7 @@ func TestLoginStatusStringUnknown(t *testing.T) {
 }
 
 func TestLoginStatusIota(t *testing.T) {
-	// Verify the iota ordering matches the C# enum order exactly.
+	// Verify the iota ordering is stable.
 	// Any change in ordering would be a breaking change for serialized data.
 	if StatusLoggedIn != 0 {
 		t.Errorf("StatusLoggedIn must be 0, got %d", int(StatusLoggedIn))
