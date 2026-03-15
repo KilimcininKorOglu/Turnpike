@@ -1,11 +1,11 @@
-# Sophos XG User Login - Build System
+# Turnpike - Build System
 # Usage: make [target]
 
-APP_NAME    := sophos-xg-login
+APP_NAME    := turnpike
 VERSION     := 2.0.2
 BUILD_DIR   := build
-CMD_PATH    := ./cmd/sophosxg
-LDFLAGS     := -s -w -X 'github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion=$(VERSION)'
+CMD_PATH    := ./cmd/turnpike
+LDFLAGS     := -s -w -X 'github.com/KilimcininKorOglu/Turnpike/internal/cli.AppVersion=$(VERSION)'
 GO          := go
 GOTEST      := $(GO) test
 GOBUILD     := $(GO) build

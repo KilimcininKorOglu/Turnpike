@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/auth"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/config"
+	"github.com/KilimcininKorOglu/Turnpike/internal/auth"
+	"github.com/KilimcininKorOglu/Turnpike/internal/config"
 )
 
 // AppVersion is the application version string, injected at build time via ldflags.
@@ -196,7 +196,7 @@ func runStatus(opts Options) int {
 }
 
 func runVersion(opts Options) int {
-	fmt.Fprintf(opts.Stdout, "Sophos XG User Login v%s (%s/%s/%s)\n",
+	fmt.Fprintf(opts.Stdout, "Turnpike v%s (%s/%s/%s)\n",
 		AppVersion, runtime.Compiler, runtime.GOOS, runtime.GOARCH)
 	return ExitSuccess
 }

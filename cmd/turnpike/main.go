@@ -4,9 +4,9 @@ import (
 	"flag"
 	"os"
 
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/config"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/ui"
+	"github.com/KilimcininKorOglu/Turnpike/internal/cli"
+	"github.com/KilimcininKorOglu/Turnpike/internal/config"
+	"github.com/KilimcininKorOglu/Turnpike/internal/ui"
 )
 
 func main() {

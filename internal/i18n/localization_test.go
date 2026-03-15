@@ -10,7 +10,7 @@ import (
 // This table is the single source of truth for English coverage tests.
 var allEnglishTranslations = map[string]string{
 	// Window / Button / Status
-	"WindowTitle":              "Sophos XG User Login",
+	"WindowTitle":              "Turnpike",
 	"ButtonLogin":              "Log In",
 	"ButtonLogout":             "Logout",
 	"ButtonDisconnect":         "Disconnect",
@@ -45,7 +45,7 @@ var allEnglishTranslations = map[string]string{
 	"ErrorAutoStartEnable":      "Failed to enable auto-start",
 	"ErrorAutoStartDisable":     "Failed to disable auto-start",
 	// Dialogs
-	"DialogLogoutConfirm":   "Are you sure you want to logout from Sophos XG?",
+	"DialogLogoutConfirm":   "Are you sure you want to logout from Turnpike?",
 	"DialogLogoutTitle":     "Confirm Logout",
 	"DialogRetryConnection": "Retry connection?",
 	// Menu
@@ -93,7 +93,7 @@ var allEnglishTranslations = map[string]string{
 // allTurkishTranslations maps every key to its expected Turkish value.
 var allTurkishTranslations = map[string]string{
 	// Window / Button / Status
-	"WindowTitle":              "Sophos XG Kullanıcı Girişi",
+	"WindowTitle":              "Turnpike",
 	"ButtonLogin":              "Giriş Yap",
 	"ButtonLogout":             "Çıkış",
 	"ButtonDisconnect":         "Bağlantıyı Kes",
@@ -128,7 +128,7 @@ var allTurkishTranslations = map[string]string{
 	"ErrorAutoStartEnable":      "Otomatik başlatma etkinleştirilemedi",
 	"ErrorAutoStartDisable":     "Otomatik başlatma devre dışı bırakılamadı",
 	// Dialogs
-	"DialogLogoutConfirm":   "Sophos XG'den çıkış yapmak istediğinizden emin misiniz?",
+	"DialogLogoutConfirm":   "Turnpike'den çıkış yapmak istediğinizden emin misiniz?",
 	"DialogLogoutTitle":     "Çıkışı Onayla",
 	"DialogRetryConnection": "Bağlantı yeniden denensin mi?",
 	// Menu

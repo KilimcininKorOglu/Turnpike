@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// sophosResponse represents the XML response structure from Sophos XG
+// sophosResponse represents the XML response structure from the captive portal
 type sophosResponse struct {
 	XMLName  xml.Name              `xml:"ajax-response"`
 	Response sophosResponseContent `xml:"response"`
@@ -25,7 +25,7 @@ func ParseCaptivePortalResponse(responseText string) LoginResult {
 
 	normalized := strings.ToLower(responseText)
 
-	// Check for Sophos XG specific success patterns first (more reliable)
+	// Check for captive portal specific success patterns first (more reliable)
 	if strings.Contains(normalized, "<status>live</status>") ||
 		strings.Contains(normalized, "\"status\":\"live\"") ||
 		strings.Contains(normalized, "live user") ||
@@ -65,7 +65,7 @@ func ParseCaptivePortalResponse(responseText string) LoginResult {
 	return CreateFailure(StatusNoConnection, "Unable to parse response")
 }
 
-// ParseXMLResponse parses Sophos XG XML response format
+// ParseXMLResponse parses captive portal XML response format
 func ParseXMLResponse(xmlResponse string) LoginResult {
 	if xmlResponse == "" {
 		return CreateFailure(StatusNoConnection, "Empty response from server")

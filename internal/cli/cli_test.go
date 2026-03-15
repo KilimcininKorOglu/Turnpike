@@ -34,7 +34,7 @@ func TestRunVersion(t *testing.T) {
 		}
 	})
 
-	if !strings.Contains(stdout, "Sophos XG User Login v") {
+	if !strings.Contains(stdout, "Turnpike v") {
 		t.Errorf("expected version output, got %q", stdout)
 	}
 	if !strings.Contains(stdout, AppVersion) {

@@ -1,4 +1,4 @@
-module github.com/KilimcininKorOglu/SophosXG-User-Client
+module github.com/KilimcininKorOglu/Turnpike
 
 go 1.22
 

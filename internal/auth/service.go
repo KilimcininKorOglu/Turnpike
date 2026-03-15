@@ -17,7 +17,7 @@ const (
 	logoutMode          = "193"
 )
 
-// Service handles Sophos XG captive portal authentication
+// Service handles captive portal authentication
 type Service struct {
 	serverIP          string
 	captivePortalPort int

@@ -194,8 +194,8 @@ func (m *Manager) initTranslations() {
 	// Window / Button / Status
 	// -------------------------------------------------------------------------
 	add("WindowTitle",
-		"Sophos XG User Login",
-		"Sophos XG Kullanıcı Girişi")
+		"Turnpike",
+		"Turnpike")
 
 	add("ButtonLogin",
 		"Log In",
@@ -332,8 +332,8 @@ func (m *Manager) initTranslations() {
 	// Dialogs
 	// -------------------------------------------------------------------------
 	add("DialogLogoutConfirm",
-		"Are you sure you want to logout from Sophos XG?",
-		"Sophos XG'den çıkış yapmak istediğinizden emin misiniz?")
+		"Are you sure you want to logout from Turnpike?",
+		"Turnpike'den çıkış yapmak istediğinizden emin misiniz?")
 
 	add("DialogLogoutTitle",
 		"Confirm Logout",

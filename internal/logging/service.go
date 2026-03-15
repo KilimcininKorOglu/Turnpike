@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	logFileName      = "sophos-xg-login.log"
+	logFileName      = "turnpike.log"
 	maxLogFileSize   int64 = 10 * 1024 * 1024 // 10MB
 	maxMessageLength = 200
 	maxValueLength   = 50
@@ -36,7 +36,7 @@ type Service struct {
 	debug       bool
 }
 
-// NewService creates a new logging service that writes to logDir/sophos-xg-login.log.
+// NewService creates a new logging service that writes to logDir/turnpike.log.
 // When debug is false, LogDebug calls are silently discarded.
 func NewService(logDir string, debug bool) *Service {
 	s := &Service{
@@ -53,7 +53,7 @@ func NewService(logDir string, debug bool) *Service {
 
 // LogApplicationStart logs application startup information.
 func (s *Service) LogApplicationStart(version string) {
-	message := "=== Sophos XG User Login Application Started ===" +
+	message := "=== Turnpike Application Started ===" +
 		" | Version: " + version +
 		" | Go: " + runtime.Version() +
 		" | OS: " + runtime.GOOS + "/" + runtime.GOARCH
@@ -62,7 +62,7 @@ func (s *Service) LogApplicationStart(version string) {
 
 // LogApplicationStop logs application shutdown.
 func (s *Service) LogApplicationStop() {
-	s.logMessage(LevelInfo, "=== Sophos XG User Login Application Stopped ===", "Application")
+	s.logMessage(LevelInfo, "=== Turnpike Application Stopped ===", "Application")
 }
 
 // LogAuthenticationAttempt logs a login attempt and its result.

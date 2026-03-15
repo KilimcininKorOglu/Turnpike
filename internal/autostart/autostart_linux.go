@@ -24,7 +24,7 @@ Exec=%s /minimized
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Comment=Sophos XG Firewall Authentication
+Comment=Turnpike Firewall Authentication
 `, m.appName, m.exePath)
 
 	return os.WriteFile(desktopPath, []byte(content), 0644)
@@ -47,5 +47,5 @@ func (m *Manager) IsEnabled() bool {
 }
 
 func (m *Manager) desktopFileName() string {
-	return "sophos-xg-login.desktop"
+	return "turnpike.desktop"
 }

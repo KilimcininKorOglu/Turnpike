@@ -1,5 +1,5 @@
 builds:
-  - id: "sophos-xg-login"
+  - id: "turnpike"
     env:
       - CGO_ENABLED=0
     goos:
@@ -9,13 +9,13 @@ builds:
     goarch:
       - amd64
       - arm64
-    main: ./cmd/sophosxg/
-    binary: sophos-xg-login
+    main: ./cmd/turnpike/
+    binary: turnpike
     ldflags:
-      - -s -w -X 'github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion={{.Version}}'
+      - -s -w -X 'github.com/KilimcininKorOglu/Turnpike/internal/cli.AppVersion={{.Version}}'
 
 archives:
-  - id: "sophos-xg-login"
+  - id: "turnpike"
     format: tar.gz
     name_template: "{{ .ProjectName }}-{{ .Os }}-{{ .Arch }}"
     format_overrides:

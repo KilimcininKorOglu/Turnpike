@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/security"
+	"github.com/KilimcininKorOglu/Turnpike/internal/security"
 )
 
 const credentialsFileName = "user_credentials.json"

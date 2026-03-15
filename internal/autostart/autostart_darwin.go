@@ -53,7 +53,7 @@ func (m *Manager) IsEnabled() bool {
 }
 
 func (m *Manager) bundleID() string {
-	return "com.sophos-xg-login.app"
+	return "com.turnpike.app"
 }
 
 func (m *Manager) plistName() string {

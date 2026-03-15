@@ -1,14 +1,14 @@
 @echo off
-REM Sophos XG User Login - Build Script for Windows
+REM Turnpike - Build Script for Windows
 REM Usage: build.bat [command]
 
 setlocal enabledelayedexpansion
 
-set APP_NAME=sophos-xg-login
+set APP_NAME=turnpike
 set VERSION=2.0.2
 set BUILD_DIR=build
-set CMD_PATH=.\cmd\sophosxg
-set LDFLAGS=-s -w -X "github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion=%VERSION%"
+set CMD_PATH=.\cmd\turnpike
+set LDFLAGS=-s -w -X "github.com/KilimcininKorOglu/Turnpike/internal/cli.AppVersion=%VERSION%"
 
 if "%~1"=="" goto all
 if "%~1"=="all" goto all

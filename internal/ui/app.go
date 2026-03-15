@@ -18,12 +18,12 @@ import (
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
 
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/auth"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/autostart"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/config"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/i18n"
-	"github.com/KilimcininKorOglu/SophosXG-User-Client/internal/logging"
+	"github.com/KilimcininKorOglu/Turnpike/internal/auth"
+	"github.com/KilimcininKorOglu/Turnpike/internal/autostart"
+	"github.com/KilimcininKorOglu/Turnpike/internal/cli"
+	"github.com/KilimcininKorOglu/Turnpike/internal/config"
+	"github.com/KilimcininKorOglu/Turnpike/internal/i18n"
+	"github.com/KilimcininKorOglu/Turnpike/internal/logging"
 )
 
 // Application is the main application controller
@@ -96,7 +96,7 @@ func NewApplication(startMinimized bool) *Application {
 	settingsDir := filepath.Dir(exePath)
 
 	// Initialize Fyne first (needed for preferences)
-	a.fyneApp = app.NewWithID("com.sophos-xg-login.app")
+	a.fyneApp = app.NewWithID("com.turnpike.app")
 	a.fyneApp.Settings().SetTheme(&OLEDTheme{})
 
 	// Initialize localization with system language detection, then load saved preference
@@ -119,7 +119,7 @@ func NewApplication(startMinimized bool) *Application {
 		config.HTTPRequestTimeout,
 	)
 
-	a.autoStart = autostart.NewManager("Sophos XG User Login", exePath)
+	a.autoStart = autostart.NewManager("Turnpike", exePath)
 
 	a.logger.LogApplicationStart(cli.AppVersion)
 

@@ -35,7 +35,7 @@ func TestAutostart_EnableDisableCycle(t *testing.T) {
 	os.Setenv("HOME", tempHome)
 	defer os.Setenv("HOME", originalHome)
 
-	m := NewManager("Sophos XG User Login", "/tmp/sophos-xg-login")
+	m := NewManager("Turnpike", "/tmp/turnpike")
 
 	// Initially disabled
 	if m.IsEnabled() {
@@ -55,9 +55,9 @@ func TestAutostart_EnableDisableCycle(t *testing.T) {
 	var expectedPath string
 	switch runtime.GOOS {
 	case "darwin":
-		expectedPath = filepath.Join(tempHome, "Library", "LaunchAgents", "com.sophos-xg-login.app.plist")
+		expectedPath = filepath.Join(tempHome, "Library", "LaunchAgents", "com.turnpike.app.plist")
 	case "linux":
-		expectedPath = filepath.Join(tempHome, ".config", "autostart", "sophos-xg-login.desktop")
+		expectedPath = filepath.Join(tempHome, ".config", "autostart", "turnpike.desktop")
 	}
 	if expectedPath != "" {
 		if _, err := os.Stat(expectedPath); os.IsNotExist(err) {

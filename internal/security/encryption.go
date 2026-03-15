@@ -22,7 +22,7 @@ const (
 	EncryptedPrefix = "SXGV2:"
 
 	// appEntropy is application-specific entropy mixed into the key derivation.
-	// Matches the C# original: Encoding.UTF8.GetBytes("SophosXGUserLogin2024")
+	// Legacy entropy string kept for backward compatibility with existing encrypted credentials
 	appEntropy = "SophosXGUserLogin2024"
 )
 
