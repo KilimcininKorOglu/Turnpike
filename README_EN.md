@@ -11,7 +11,7 @@ A cross-platform desktop application for managing Sophos XG firewall captive por
 
 ## Screenshot
 
-![Turnpike - English Interface](screenshot/en.png)
+![Turnpike - English Interface](screenshot/image.png)
 
 ## Features
 
