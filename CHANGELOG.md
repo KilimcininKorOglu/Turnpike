@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [2.0.3] - 2026-03-15
+
+### Fixed
+- Port entry field too narrow, clipping last digit
+- SSL checkbox text too long for UI layout
+- "Log In" button text changed to "Login" for consistency
+
+### Changed
+- Auto-start label made platform-neutral ("at login" instead of "with Windows")
+
 ## [2.0.2] - 2026-03-15
 
 ### Fixed

@@ -2,7 +2,7 @@
 # Usage: make [target]
 
 APP_NAME    := turnpike
-VERSION     := 2.0.2
+VERSION     := 2.0.3
 BUILD_DIR   := build
 CMD_PATH    := ./cmd/turnpike
 LDFLAGS     := -s -w -X 'github.com/KilimcininKorOglu/Turnpike/internal/cli.AppVersion=$(VERSION)'

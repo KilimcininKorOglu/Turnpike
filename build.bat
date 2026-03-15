@@ -5,7 +5,7 @@ REM Usage: build.bat [command]
 setlocal enabledelayedexpansion
 
 set APP_NAME=turnpike
-set VERSION=2.0.2
+set VERSION=2.0.3
 set BUILD_DIR=build
 set CMD_PATH=.\cmd\turnpike
 set LDFLAGS=-s -w -X "github.com/KilimcininKorOglu/Turnpike/internal/cli.AppVersion=%VERSION%"
