@@ -7,7 +7,7 @@ A cross-platform desktop application for managing Sophos XG firewall captive por
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 ![License](https://img.shields.io/badge/license-Open%20Source-green.svg)
 
-**Turkce Surum**: [README.md](README.md)
+**Türkçe**: [README.md](README.md)
 
 ## Screenshot
 

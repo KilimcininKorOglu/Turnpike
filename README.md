@@ -7,7 +7,7 @@ Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını (captive portal) y�
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 ![License](https://img.shields.io/badge/lisans-Açık%20Kaynak-green.svg)
 
-**English Version**: [README_EN.md](README_EN.md)
+**English**: [README_EN.md](README_EN.md)
 
 ## Ekran Görüntüsü
 
