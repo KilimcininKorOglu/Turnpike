@@ -57,7 +57,7 @@ var allEnglishTranslations = map[string]string{
 	"MenuItemTurkish":  "Türkçe",
 	// Labels
 	"LabelServerConfiguration": "Server Configuration",
-	"LabelAutoStartWindows":     "Start automatically with Windows (minimized)",
+	"LabelAutoStart":            "Start automatically at login (minimized)",
 	"LabelUserCredentials":      "User Credentials",
 	"LabelServerIP":             "Server IP:",
 	"LabelCaptivePortal":        "Captive Portal Port:",
@@ -140,7 +140,7 @@ var allTurkishTranslations = map[string]string{
 	"MenuItemTurkish": "Türkçe",
 	// Labels
 	"LabelServerConfiguration": "Sunucu Yapılandırması",
-	"LabelAutoStartWindows":     "Windows ile otomatik başlat (simge durumunda)",
+	"LabelAutoStart":            "Oturum açılışında otomatik başlat (simge durumunda)",
 	"LabelUserCredentials":      "Kullanıcı Bilgileri",
 	"LabelServerIP":             "Sunucu IP:",
 	"LabelCaptivePortal":        "Captive Portal Port:",

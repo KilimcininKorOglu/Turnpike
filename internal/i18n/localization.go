@@ -375,9 +375,9 @@ func (m *Manager) initTranslations() {
 		"Server Configuration",
 		"Sunucu Yapılandırması")
 
-	add("LabelAutoStartWindows",
-		"Start automatically with Windows (minimized)",
-		"Windows ile otomatik başlat (simge durumunda)")
+	add("LabelAutoStart",
+		"Start automatically at login (minimized)",
+		"Oturum açılışında otomatik başlat (simge durumunda)")
 
 	add("LabelUserCredentials",
 		"User Credentials",

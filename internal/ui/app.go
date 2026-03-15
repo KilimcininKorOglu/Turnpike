@@ -210,7 +210,7 @@ func (a *Application) buildUI() {
 	})
 	a.rememberCheck.SetChecked(a.credManager.RememberCredentials())
 
-	a.autoStartCheck = widget.NewCheck(a.localization.GetString("LabelAutoStartWindows"), func(checked bool) {
+	a.autoStartCheck = widget.NewCheck(a.localization.GetString("LabelAutoStart"), func(checked bool) {
 		if checked {
 			if err := a.autoStart.Enable(); err != nil {
 				a.logger.LogError(err, "Failed to enable auto-start", "AutoStart")
@@ -843,7 +843,7 @@ func (a *Application) applyLocalization() {
 	a.skipSSLCheck.Refresh()
 	a.rememberCheck.Text = a.localization.GetString("CheckboxRememberCredentials")
 	a.rememberCheck.Refresh()
-	a.autoStartCheck.Text = a.localization.GetString("LabelAutoStartWindows")
+	a.autoStartCheck.Text = a.localization.GetString("LabelAutoStart")
 	a.autoStartCheck.Refresh()
 
 	// Update connection panel if connected
