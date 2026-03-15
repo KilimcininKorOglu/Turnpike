@@ -2,7 +2,7 @@
 # Usage: make [target]
 
 APP_NAME    := sophos-xg-login
-VERSION     := 2.0.0
+VERSION     := 2.0.1
 BUILD_DIR   := build
 CMD_PATH    := ./cmd/sophosxg
 LDFLAGS     := -s -w -X 'github.com/KilimcininKorOglu/SophosXG-User-Client/internal/cli.AppVersion=$(VERSION)'

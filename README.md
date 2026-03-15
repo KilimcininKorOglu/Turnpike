@@ -2,7 +2,7 @@
 
 Sophos XG güvenlik duvarı kimlik doğrulama oturumlarını yönetmek için kurumsal düzeyde güvenlik ve akıllı otomatik yeniden bağlanma özellikleri sunan çok platformlu masaüstü uygulaması. Tek bir çalıştırılabilir dosyadan hem GUI hem CLI desteği sunar.
 
-![Version](https://img.shields.io/badge/versiyon-2.0.0-blue.svg)
+![Version](https://img.shields.io/badge/versiyon-2.0.1-blue.svg)
 ![Go](https://img.shields.io/badge/Go-1.22+-00ADD8.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 ![License](https://img.shields.io/badge/lisans-Açık%20Kaynak-green.svg)
